@@ -4,7 +4,7 @@ const function_validate = require('./functions/validate.js');
 const function_signout = require('./functions/signout.js');
 const fs = require('fs');
 
-const package = JSON.parse(fs.readFileSync('./package.json'));
+const package = JSON.parse(fs.readFileSync('./node_modules/auth_mojang.js/package.json'));
 
 const login = function(name, version, username, password, requestUser) {
     return function_login(name, version, username, password, requestUser);

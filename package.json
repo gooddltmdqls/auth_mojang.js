@@ -3,7 +3,7 @@
     "node-fetch": "^2.6.1"
   },
   "name": "auth_mojang.js",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "main": "main.js",
   "devDependencies": {},
   "scripts": {

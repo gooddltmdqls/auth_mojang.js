@@ -26,5 +26,6 @@ module.exports = {
     login: login,
     refresh: refresh,
     validate: validate,
-    signout: signout
+    signout: signout,
+    info: info
 }

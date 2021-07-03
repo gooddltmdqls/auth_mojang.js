@@ -3,7 +3,7 @@
     "node-fetch": "^2.6.1"
   },
   "name": "auth_mojang.js",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "main.js",
   "devDependencies": {},
   "scripts": {
@@ -20,5 +20,13 @@
   ],
   "author": "Icetang0123",
   "license": "MIT",
-  "description": "a Mojang api authenticate tool"
+  "description": "a Mojang api authenticate tool",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gooddltmdqls/auth_mojang.js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/gooddltmdqls/auth_mojang.js/issues"
+  },
+  "homepage": "https://github.com/gooddltmdqls/auth_mojang.js#readme"
 }

@@ -4,6 +4,8 @@ const function_validate = require('./functions/validate.js');
 const function_signout = require('./functions/signout.js');
 const fs = require('fs');
 
+const package = JSON.parse(fs.readFileSync('./package.json'));
+
 const login = function(name, version, username, password, requestUser) {
     return function_login(name, version, username, password, requestUser);
 }
@@ -16,10 +18,13 @@ const validate = function(accessToken, clientToken) {
 const signout = function(username, password) {
     return function_signout(username, password);
 }
+const info = [ process.version, package.version, package.keywords];
+
+console.log(info);
 
 module.exports = {
     login: login,
     refresh: refresh,
-    validate: validate
+    validate: validate,
     signout: signout
 }

@@ -18,6 +18,16 @@ or
 const { login, refresh, validate } = require('@icetang0123/mojang-auth');
 ```
 
+## Info
+
+```javascript
+//import
+
+mauth.info
+```
+
+it returns an array.
+
 ## Login
 
 ```javascript

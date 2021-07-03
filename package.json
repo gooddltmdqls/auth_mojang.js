@@ -1,0 +1,24 @@
+{
+  "dependencies": {
+    "node-fetch": "^2.6.1"
+  },
+  "name": "auth_mojang.js",
+  "version": "1.0.1",
+  "main": "main.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "auth",
+    "mojang",
+    "minecraft",
+    "scrolls",
+    "login",
+    "api",
+    "fetch"
+  ],
+  "author": "Icetang0123",
+  "license": "MIT",
+  "description": "a Mojang api authenticate tool"
+}

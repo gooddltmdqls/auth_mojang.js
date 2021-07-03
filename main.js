@@ -20,8 +20,6 @@ const signout = function(username, password) {
 }
 const info = [ process.version, package.version, package.keywords];
 
-console.log(info);
-
 module.exports = {
     login: login,
     refresh: refresh,

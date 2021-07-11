@@ -1,6 +1,6 @@
 const fetch = require('node-fetch');
 
-const refresh = function(accessToken, clientToken) {
+const refresh = async function(accessToken, clientToken) {
     const body = {
         "accessToken": accessToken,
         "clientToken": clientToken
@@ -13,7 +13,7 @@ const refresh = function(accessToken, clientToken) {
             "Content-Type": "application/json"
         }
     });
-    return promise.then(res => res.json());
+    return await promise.then(res => res.json());
 }
 
 module.exports = refresh

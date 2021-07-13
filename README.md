@@ -1,7 +1,9 @@
-##Require
+## Require
 
 require a Node.JS v12 or newest.
+
 require an async function.
+
 require your project.
 
 ## Install and Import
@@ -49,7 +51,7 @@ mauth.login('Minecraft', 1, 'username', 'password');
 
 async function login(agname, agver, usrn, pswd) {
     const res = await mauth.login(agname);
-    if (res.errorMsg) {
+    if (res.error) {
         console.error(res.errorMessage);
         return;
     }

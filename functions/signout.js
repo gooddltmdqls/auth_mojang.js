@@ -13,6 +13,6 @@ const signout = async function(username, password) {
             "Content-Type": "application/json"
         }
     });
-    return await promise.then(res => res.json());
+    return await promise.then(res => res.ok);
 }
 module.exports = signout

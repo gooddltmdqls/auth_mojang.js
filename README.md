@@ -21,7 +21,7 @@ const mauth = require('auth_mojang.js');
 or
 
 ```javascript
-const { login, refresh, validate } = require('@icetang0123/mojang-auth');
+const { login } = require('auth_mojang.js');
 ```
 
 ## Info
@@ -50,7 +50,7 @@ mauth.login('Minecraft', 1, 'username', 'password');
 async function login(agname, agver, usrn, pswd) {
     const res = await mauth.login(agname);
     if (res.errorMsg) {
-        console.error(res.errorMsg);
+        console.error(res.errorMessage);
         return;
     }
     //handle error
@@ -89,12 +89,16 @@ res.accessToken
 //login method, function name is login
 
 async function refresh(accessToken, clientToken) {
-    console.log(await mauth.refresh(res.accessToken, res.clientToken));
+    console.log(await mauth.refresh(accessToken, clientToken));
 }
 
-const res = await mauth.login('Minecraft', 1, 'username', 'password');
-refresh(res.accessToken, res.clientToken);
+async function caller() {
+    const res = await login('Minecraft', 1, 'usrname', 'pword');
+    refresh(res.accessToken, res.clientToken);
+}
 //it returns an json
+
+caller();
 ```
 
 ## Validate
@@ -107,15 +111,18 @@ It verifys your accessToken! ...and none invalidate!
 //login method
 
 async function validate(accessToken, clientToken) {
-    const valid = await mauth.validate(accessToken, clientToken);
-    if (valid) {
+    if (await mauth.validate(accessToken, clientToken)) {
         console.log('valid');
     } else {
         console.log('invalid');
     }
 }
 
-const res = login()
+async function caller() {
+    res = await mauth.login('...');
+    validate(res.accessToken, res.clientToken);
+}
+caller();
 ```
 
 ## Signout
@@ -125,7 +132,6 @@ const res = login()
 ```javascript
 //import
 
-mauth.signout('username', 'password').then(function(res) {
-    //your method
-});
+mauth.signout('username', 'password');
+//if successfully signouted, return true
 ```

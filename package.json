@@ -1,10 +1,9 @@
 {
   "dependencies": {
-    "auth_mojang.js": "^1.0.5",
     "node-fetch": "^2.6.1"
   },
   "name": "auth_mojang.js",
-  "version": "1.1.8",
+  "version": "1.1.9",
   "main": "main.js",
   "devDependencies": {},
   "scripts": {

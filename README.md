@@ -36,6 +36,15 @@ mauth.info
 
 it returns an array.
 
+```javascript
+//import
+
+const info = mauth.info;
+console.log(info[0]); //Node.JS version
+console.log(info[1]); //Module version
+console.log(info[2]); //Module kewords(more array)
+```
+
 ## Login
 
 ```javascript

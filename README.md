@@ -8,7 +8,7 @@ require your project.
 
 ## Install and Import
 
-install
+how to install
 
 ```batchfile
 npm i auth_mojang.js

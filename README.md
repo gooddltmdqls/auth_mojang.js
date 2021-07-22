@@ -146,3 +146,7 @@ caller();
 mauth.signout('username', 'password');
 //if successfully signouted, return true
 ```
+
+##### Wanna support?
+
+[Discord](https://discord.gg/nDfjwUCEUz)

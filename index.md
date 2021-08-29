@@ -1,37 +1,152 @@
-## Welcome to GitHub Pages
+## Require
 
-You can use the [editor on GitHub](https://github.com/gooddltmdqls/auth_mojang.js/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+require a Node.JS v12 or newest.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+require an async function.
 
-### Markdown
+require your project.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+## Install and Import
 
-```markdown
-Syntax highlighted code block
+how to install
 
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+```batchfile
+npm i auth_mojang.js
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+import
 
-### Jekyll Themes
+```javascript
+const mauth = require('auth_mojang.js');
+```
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/gooddltmdqls/auth_mojang.js/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+or
 
-### Support or Contact
+```javascript
+const { login } = require('auth_mojang.js');
+```
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+## Info
+
+```javascript
+//import
+
+mauth.info
+```
+
+it returns an array.
+
+```javascript
+//import
+
+const info = mauth.info;
+console.log(info[0]); //Node.JS version
+console.log(info[1]); //Module version
+console.log(info[2]); //Module kewords(more array)
+```
+
+## Login
+
+```javascript
+//import
+
+mauth.login('Minecraft', 1, 'username', 'password');
+```
+
+# How i get username and uuid using 'login' function?
+
+```javascript
+//import
+
+async function login(agname, agver, usrn, pswd) {
+    const res = await mauth.login(agname);
+    if (res.error) {
+        console.error(res.errorMessage);
+        return;
+    }
+    //handle error
+    if (!res.selectedProfile) return;
+    //if player have'nt Minecraft: Java Edition, return with null.
+    const profile = res.selectedProfile;
+    console.log(profile.name, profile.id);
+    //username and uuid
+}
+login('Minecraft', 1, 'username', 'password');
+```
+
+## Refresh
+
+You can verify AccessToken using this method. and it invalidates accessToken
+
+Q. What is 'AccessToken' ?
+
+A. AccessToken is a randomly generated string!
+
+
+Q. How i get 'AccessToken' ?
+
+A. You can get using 'login' method!
+
+use
+
+```javascript
+res.accessToken
+```
+!
+
+```javascript
+//import
+
+//login method, function name is login
+
+async function refresh(accessToken, clientToken) {
+    console.log(await mauth.refresh(accessToken, clientToken));
+}
+
+async function caller() {
+    const res = await login('Minecraft', 1, 'usrname', 'pword');
+    refresh(res.accessToken, res.clientToken);
+}
+//it returns an json
+
+caller();
+```
+
+## Validate
+
+It verifys your accessToken! ...and none invalidate!
+
+```javascript
+//import
+
+//login method
+
+async function validate(accessToken, clientToken) {
+    if (await mauth.validate(accessToken, clientToken)) {
+        console.log('valid');
+    } else {
+        console.log('invalid');
+    }
+}
+
+async function caller() {
+    res = await mauth.login('...');
+    validate(res.accessToken, res.clientToken);
+}
+caller();
+```
+
+## Signout
+
+'Signout' method is invalidates your accessToken using username and password.
+
+```javascript
+//import
+
+mauth.signout('username', 'password');
+//if successfully signouted, return true
+```
+
+##### Wanna support?
+
+[Discord](https://discord.gg/nDfjwUCEUz)
